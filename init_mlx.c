@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:12:15 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 15:37:05 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:46:36 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ void	init_mlx(t_cube *data)
 	data->mlx.img1.addr = mlx_get_data_addr(data->mlx.img1.mlx_img, &data->mlx.img1.bpp, &data->mlx.img1.line_len, &data->mlx.img1.endian);
 	data->mlx.img2.addr = mlx_get_data_addr(data->mlx.img2.mlx_img, &data->mlx.img2.bpp, &data->mlx.img2.line_len, &data->mlx.img2.endian);
 	data->mlx.index = 1;
-	init_textures(data);
+	//init_textures(data);
 }
