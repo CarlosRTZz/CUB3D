@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:32:45 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/19 11:10:28 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/09/28 11:39:23 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,10 @@ t_cube	*init_data(int fd)
 	}
 	parse_map(data, fd);
 	check_map(data);
+	data->key_a = 0;
+	data->key_d = 0;
+	data->key_w = 0;
+	data->key_s = 0;
+	data->key_shift = 1;
 	return (data);
 }

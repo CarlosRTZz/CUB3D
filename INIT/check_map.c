@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:07:15 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/19 11:16:06 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:01:39 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,15 @@ void	set_player_start_pos(t_player *p, int i, int j, char dir)
 	p->x = (double)j + 0.5;
 	p->y = (double)i + 0.5;
 	if (dir == 'N')
-		p->a = (double)PI / 2;
-	else if (dir == 'S')
 		p->a = (double)(3 * PI) / 2;
+	else if (dir == 'S')
+		p->a = (double)(PI) / 2;
 	else if (dir == 'W')
-		p->a = (double)PI;
+		p->a = (double)(PI);
 	else
-		p->a = (double)0;
+		p->a = (double)(0);
+	p->x_off = cos(p->a);
+	p->y_off = sin(p->a);
 }
 
 void	set_player(t_cube *data)

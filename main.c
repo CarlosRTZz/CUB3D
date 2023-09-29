@@ -6,18 +6,13 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:36:04 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/19 11:12:49 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/09/29 14:59:04 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cub3D.h"
 
-int	create_trgb(int t, int r, int g, int b)
-{
-	return (t << 24 | r << 16 | g << 8 | b);
-}
-
-void	ft_exit(t_cube *data, int status)
+int	ft_exit(t_cube *data, int status)
 {
 	free_cub3d(data);
 	if (status != EXIT_SUCCESS)
@@ -47,6 +42,21 @@ void	ft_exit(t_cube *data, int status)
 	exit(status);
 }
 
+void	init_mlx(t_cube *data)
+{
+	data->mlx.mlx = mlx_init();
+	data->mlx.window = mlx_new_window(data->mlx.mlx, 1280, 720, "Cub3D");
+	data->mlx.mini1.mlx_img = mlx_new_image(data->mlx.mlx, 400, 400);
+	data->mlx.mini2.mlx_img = mlx_new_image(data->mlx.mlx, 400, 400);
+	data->mlx.mini1.addr = mlx_get_data_addr(data->mlx.mini1.mlx_img, &data->mlx.mini1.bpp, &data->mlx.mini1.line_len, &data->mlx.mini1.endian);
+	data->mlx.mini2.addr = mlx_get_data_addr(data->mlx.mini2.mlx_img, &data->mlx.mini2.bpp, &data->mlx.mini2.line_len, &data->mlx.mini2.endian);
+	data->mlx.img1.mlx_img = mlx_new_image(data->mlx.mlx, 1280, 720);
+	data->mlx.img2.mlx_img = mlx_new_image(data->mlx.mlx, 1280, 720);
+	data->mlx.img1.addr = mlx_get_data_addr(data->mlx.img1.mlx_img, &data->mlx.img1.bpp, &data->mlx.img1.line_len, &data->mlx.img1.endian);
+	data->mlx.img2.addr = mlx_get_data_addr(data->mlx.img2.mlx_img, &data->mlx.img2.bpp, &data->mlx.img2.line_len, &data->mlx.img2.endian);
+	data->mlx.index = 1;
+}
+
 int	main(int ac, char **argv)
 {
 	t_cube	*data;
@@ -54,5 +64,12 @@ int	main(int ac, char **argv)
 
 	fd = check_args(ac, argv);
 	data = init_data(fd);
+	init_mlx(data);
+	render(data);
+	mlx_hook(data->mlx.window, 2, 0, keypress, data);
+	mlx_hook(data->mlx.window, 3, 0, keyrelease, data);
+	mlx_hook(data->mlx.window, 17, 0, window_closed, data);
+	mlx_loop_hook(data->mlx.mlx, no_input, data);
+	mlx_loop(data->mlx.mlx);
 	return (EXIT_SUCCESS);
 }
