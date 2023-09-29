@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:37:03 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 15:00:48 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:28:15 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define EXIT_WALL_ERROR 10
 # define EXIT_MISS_PLAYER 11
 # define EXIT_DUP_PLAYER 12
+# define EXIT_MLX_ERR 13
+# define EXIT_TEXTURE_ERR 14
 
 # define UP 13
 # define LEFT 0
@@ -58,6 +60,13 @@ typedef struct s_point
 	double	x;
 	double	y;
 }				t_point;
+
+typedef	struct	s_texture
+{
+	void	*ptr;
+	int		width;
+	int		height;
+}				t_texture;
 
 typedef struct s_player
 {
@@ -101,16 +110,6 @@ typedef struct s_img
 	int			endian;
 }	t_img;
 
-
-typedef struct s_map_textures
-{
-	t_img	*no;
-	t_img	*so;
-	t_img	*we;
-	t_img	*ea;
-}	t_map_datas;
-
-
 typedef struct s_ray
 {
 	double	distance;
@@ -130,12 +129,16 @@ typedef	struct s_mlx
 	t_img	img2;
 
 	int		index;
+
+	t_texture	no;
+	t_texture	so;
+	t_texture	ea;
+	t_texture	we;
 }				t_mlx;
 
 typedef struct s_cube
 {
 	t_player		*p;
-	t_map_datas		*map_img;
 	char			**map;
 	int				m_y;
 	int				m_x;
@@ -159,11 +162,18 @@ typedef struct s_cube
 	long long		last_frame;
 }				t_cube;
 
+int			ft_exit(t_cube *data, int status);
+void		init_mlx(t_cube *data);
+
+/* ---------- FREE ---------- */
+
 t_cube		*free_cub3d(t_cube *data);
 void		free_cube_map(char **map);
+
+/* ---------- INIT ---------- */
+
 int			check_args(int ac, char **argv);
 t_cube		*init_data(int fd);
-int			ft_exit(t_cube *data, int status);
 int			is_map_id(char *str);
 int			all_id_found(t_cube *data);
 int			add_map_id(char *str, t_cube *data, int fd, int i);

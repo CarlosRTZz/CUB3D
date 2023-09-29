@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:36:04 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 14:59:04 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:29:46 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,11 @@ int	ft_exit(t_cube *data, int status)
 		ft_putstr_fd("Player character missing from map file\n", 2);
 	else if (status == EXIT_DUP_PLAYER)
 		ft_putstr_fd("Two or more player characters found in map\n", 2);
+	else if (status == EXIT_MLX_ERR)
+		ft_putstr_fd("MLX initialisation failed\n", 2);
+	else if (status == EXIT_TEXTURE_ERR)
+		ft_putstr_fd("A texture provided is corrupted\n", 2);
 	exit(status);
-}
-
-void	init_mlx(t_cube *data)
-{
-	data->mlx.mlx = mlx_init();
-	data->mlx.window = mlx_new_window(data->mlx.mlx, 1280, 720, "Cub3D");
-	data->mlx.mini1.mlx_img = mlx_new_image(data->mlx.mlx, 400, 400);
-	data->mlx.mini2.mlx_img = mlx_new_image(data->mlx.mlx, 400, 400);
-	data->mlx.mini1.addr = mlx_get_data_addr(data->mlx.mini1.mlx_img, &data->mlx.mini1.bpp, &data->mlx.mini1.line_len, &data->mlx.mini1.endian);
-	data->mlx.mini2.addr = mlx_get_data_addr(data->mlx.mini2.mlx_img, &data->mlx.mini2.bpp, &data->mlx.mini2.line_len, &data->mlx.mini2.endian);
-	data->mlx.img1.mlx_img = mlx_new_image(data->mlx.mlx, 1280, 720);
-	data->mlx.img2.mlx_img = mlx_new_image(data->mlx.mlx, 1280, 720);
-	data->mlx.img1.addr = mlx_get_data_addr(data->mlx.img1.mlx_img, &data->mlx.img1.bpp, &data->mlx.img1.line_len, &data->mlx.img1.endian);
-	data->mlx.img2.addr = mlx_get_data_addr(data->mlx.img2.mlx_img, &data->mlx.img2.bpp, &data->mlx.img2.line_len, &data->mlx.img2.endian);
-	data->mlx.index = 1;
 }
 
 int	main(int ac, char **argv)

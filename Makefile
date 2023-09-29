@@ -6,13 +6,14 @@
 #    By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 12:45:03 by dopeyrat          #+#    #+#              #
-#    Updated: 2023/09/29 14:58:14 by dopeyrat         ###   ########.fr        #
+#    Updated: 2023/09/29 15:15:21 by dopeyrat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	main.c \
 			free.c \
 			utils.c \
+			init_mlx.c \
 			INIT/args.c \
 			INIT/check_map.c \
 			INIT/init.c \
