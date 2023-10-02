@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:36:04 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 15:29:46 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:13:32 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ int	main(int ac, char **argv)
 	mlx_hook(data->mlx.window, 2, 0, keypress, data);
 	mlx_hook(data->mlx.window, 3, 0, keyrelease, data);
 	mlx_hook(data->mlx.window, 17, 0, window_closed, data);
+	mlx_mouse_hook(data->mlx.window, mouse_click, data);
+	mlx_hook(data->mlx.window, 6, 0, mouse_move, data);
+	mlx_mouse_hide();
+	mlx_mouse_move(data->mlx.window, (HORIZONTAL / 2), (VERTICAL / 2));
 	mlx_loop_hook(data->mlx.mlx, no_input, data);
 	mlx_loop(data->mlx.mlx);
 	return (EXIT_SUCCESS);

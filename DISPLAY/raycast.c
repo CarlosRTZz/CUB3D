@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:49:31 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 15:01:26 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:32:10 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ void	cast_rays(t_cube *data, t_img *img, t_player *p)
 				p->mapY += p->stepY;
 				p->side = 1;
 			}
-			//if (p->mapY < 0 || p->mapY > data->m_y || p->mapX < 0 || p->mapX > data->m_x)
-			//	p->hit = 1;
-			if (data->map[p->mapY][p->mapX] == '1')
+			if (data->map[p->mapY][p->mapX] == '1' || data->map[p->mapY][p->mapX] == '2')
 				p->hit = 1;
 		}
 		if (p->side == 0)

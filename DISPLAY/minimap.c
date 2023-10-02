@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:47:12 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 14:57:56 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:08:31 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ int		get_minimap_colour(t_cube *data, double a, double b)
 		return (0xFF000000);
 	f_a = fmod(a, 1);
 	f_b = fmod(b, 1);
-	if (data->map[a_b][a_a] == '1' || data->map[a_b][a_a] == '0')
+	if (data->map[a_b][a_a] == '1' || data->map[a_b][a_a] == '0' || data->map[a_b][a_a] == '2' || data->map[a_b][a_a] == '3')
 	{
 		if ((f_a < 0.0125 || f_a > 0.9875) || (f_b < 0.0125 || f_b > 0.9875))
 			return (0x0);
 		if (data->map[a_b][a_a] == '0')
 			return (0xFFFFFF);
+		if (data->map[a_b][a_a] == '2' || data->map[a_b][a_a] == '3')
+			return (0x7F3F3F);
 		return (0xFF);
 	}
 		return (0xFF000000);

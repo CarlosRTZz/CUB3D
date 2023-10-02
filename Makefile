@@ -6,7 +6,7 @@
 #    By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 12:45:03 by dopeyrat          #+#    #+#              #
-#    Updated: 2023/09/29 15:15:21 by dopeyrat         ###   ########.fr        #
+#    Updated: 2023/10/02 12:54:59 by dopeyrat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ SRCS	=	main.c \
 			INIT/remalloc.c \
 			HOOKS/keyhooks.c \
 			HOOKS/no_input.c \
+			HOOKS/mouse_click.c \
+			HOOKS/mouse_move.c \
 			DISPLAY/display_utils.c \
 			DISPLAY/minimap.c \
 			DISPLAY/raycast.c \

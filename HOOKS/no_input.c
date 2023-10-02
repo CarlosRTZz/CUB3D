@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:35:39 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 15:01:13 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:09:27 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_hor_col(t_cube *data, double offset)
 	tmp = offset + data->p->x;
 	if ((int)tmp >= data->m_x || (int)tmp < 0)
 		return (0);
-	if (data->map[(int)data->p->y][(int)tmp] == '1')
+	if (data->map[(int)data->p->y][(int)tmp] == '1' || data->map[(int)data->p->y][(int)tmp] == '2')
 		return (0);
 	return (1);
 }
@@ -31,7 +31,7 @@ int	check_ver_col(t_cube *data, double offset)
 	tmp = offset + data->p->y;
 	if ((int)tmp >= data->m_y || (int)tmp < 0)
 		return (0);
-	if (data->map[(int)tmp][(int)data->p->x] == '1')
+	if (data->map[(int)tmp][(int)data->p->x] == '1' || data->map[(int)tmp][(int)data->p->x] == '2')
 		return (0);
 	return (1);
 }
@@ -64,7 +64,7 @@ int	no_input(t_cube *data)
 {
 	if (time_diff(data->last_frame, get_time()) < FRAME_INTERVAL)
 		return (0);
-	if (data->key_w || data->key_a)
+	if (data->key_w || data->key_s)
 		movement_key(data);
 	if (data->key_a)
 	{

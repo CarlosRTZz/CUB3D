@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:37:03 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 15:28:15 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:48:03 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,8 @@ typedef struct s_cube
 	double			key_shift;
 
 	long long		last_frame;
+	int				x;
+	int				y;
 }				t_cube;
 
 int			ft_exit(t_cube *data, int status);
@@ -192,6 +194,8 @@ long long	time_diff(long long past, long long pres);
 
 int			keypress(int keycode, t_cube *data);
 int			keyrelease(int keycode, t_cube *data);
+int			mouse_click(int keycode, int x, int y, t_cube *data);
+int			mouse_move(int x, int y, t_cube *data);
 int			window_closed(t_cube *data);
 int			no_input(t_cube *data);
 
