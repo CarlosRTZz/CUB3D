@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:43:17 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 15:23:27 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:33:35 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	free_mlx(t_cube *data)
 		mlx_destroy_image(data->mlx.mlx, data->mlx.img1.mlx_img);
 	if (data->mlx.img2.mlx_img)
 		mlx_destroy_image(data->mlx.mlx, data->mlx.img2.mlx_img);
-	if (data->mlx.no.ptr)
-		mlx_destroy_image(data->mlx.mlx, data->mlx.no.ptr);
-	if (data->mlx.so.ptr)
-		mlx_destroy_image(data->mlx.mlx, data->mlx.so.ptr);
-	if (data->mlx.ea.ptr)
-		mlx_destroy_image(data->mlx.mlx, data->mlx.ea.ptr);
-	if (data->mlx.we.ptr)
-		mlx_destroy_image(data->mlx.mlx, data->mlx.we.ptr);
+	if (data->mlx.no.mlx_img)
+		mlx_destroy_image(data->mlx.mlx, data->mlx.no.mlx_img);
+	if (data->mlx.so.mlx_img)
+		mlx_destroy_image(data->mlx.mlx, data->mlx.so.mlx_img);
+	if (data->mlx.ea.mlx_img)
+		mlx_destroy_image(data->mlx.mlx, data->mlx.ea.mlx_img);
+	if (data->mlx.we.mlx_img)
+		mlx_destroy_image(data->mlx.mlx, data->mlx.we.mlx_img);
 	if (data->mlx.window)
 		mlx_destroy_window(data->mlx.mlx, data->mlx.window);
 }

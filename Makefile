@@ -6,7 +6,7 @@
 #    By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 12:45:03 by dopeyrat          #+#    #+#              #
-#    Updated: 2023/10/02 12:54:59 by dopeyrat         ###   ########.fr        #
+#    Updated: 2023/10/02 14:59:09 by dopeyrat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ MLXFLAGS	= -Lmlx -framework OpenGL -framework Appkit
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror -O3 -O2 -Os -O1 -fsanitize=address -g
+CFLAGS	= -Wall -Wextra -Werror -O3 -O2 -Os -O1 #-fsanitize=address -g
 
 all:	${NAME}
 

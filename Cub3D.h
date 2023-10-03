@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:37:03 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/02 12:48:03 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:02:13 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 //H_FOV = 2 * arctan(tan(V_FOV / 2) * (HORIZONTAL / VERTICAL))
 # define H_FOV 1.59685138
 //1000 microsec / FPS
-# define FRAME_INTERVAL 1000 / 120
+# define FRAME_INTERVAL 1000 / 1000
 
 typedef struct s_point
 {
@@ -63,42 +63,61 @@ typedef struct s_point
 
 typedef	struct	s_texture
 {
-	void	*ptr;
+	void	*mlx_img;
 	int		width;
 	int		height;
+
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
 }				t_texture;
 
 typedef struct s_player
 {
-	double	x;
-	double	y;
-	double	a;
-	double	x_off;
-	double	y_off;
+	double		x;
+	double		y;
+	double		a;
+	double		x_off;
+	double		y_off;
 
-	double	planeX;
-	double	planeY;
+	double		planex;
+	double		planey;
 
-	double	cameraX;
+	double		camerax;
 
-	double	rayDirX;
-	double	rayDirY;
+	double		raydirx;
+	double		raydiry;
 
-	int		mapX;
-	int		mapY;
+	int			mapx;
+	int			mapy;
 
-	double	sideDistX;
-	double	sideDistY;
+	double		sidedistx;
+	double		sidedisty;
 
-	double	deltaDistX;
-	double	deltaDistY;
-	double	perpWallDist;
+	double		deltadistx;
+	double		deltadisty;
+	double		perpwalldist;
 	
-	int		stepX;
-	int		stepY;
+	int			stepx;
+	int			stepy;
 
-	int		side;
-	int		hit;
+	int			lineheight;
+	int			drawstart;
+	int			drawend;
+
+	int			side;
+	int			hit;
+
+	double		wallx;
+
+	t_texture	*texture;
+
+	int			texx;
+	int			texy;
+
+	double		step;
+	double		texpos;
 }				t_player;
 
 typedef struct s_img
