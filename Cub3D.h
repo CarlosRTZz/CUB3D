@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:37:03 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/02 15:02:13 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:01:28 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@
 # define DOWN 1
 # define RIGHT 2
 # define SHIFT 257
+# define E 14
+# define ROTATE_RIGHT 124
+# define ROTATE_LEFT 123
 
 # define PI 3.14159265
 # define HORIZONTAL 1280
@@ -53,7 +56,7 @@
 //H_FOV = 2 * arctan(tan(V_FOV / 2) * (HORIZONTAL / VERTICAL))
 # define H_FOV 1.59685138
 //1000 microsec / FPS
-# define FRAME_INTERVAL 1000 / 1000
+# define FRAME_INTERVAL 1000 / 30
 
 typedef struct s_point
 {
@@ -181,6 +184,9 @@ typedef struct s_cube
 	long long		last_frame;
 	int				x;
 	int				y;
+
+	int				epilepsy;
+	unsigned int	e_counter;
 }				t_cube;
 
 int			ft_exit(t_cube *data, int status);
@@ -224,5 +230,14 @@ void		render(t_cube *data);
 void		draw_line(t_img *mini, int x1, int y1, int x2, int y2);
 void		cast_rays(t_cube *data, t_img *img, t_player *p);
 void		render_minimap(t_cube *data, t_img *mini);
+
+/* ---------- COLOURS ---------- */
+
+unsigned int	generate_rgb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	generate_rbg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	generate_grb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	generate_gbr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	generate_brg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	generate_bgr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
 
 #endif

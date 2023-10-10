@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:32:45 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/28 11:39:23 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:52:31 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,7 @@ t_cube	*init_data(int fd)
 	data->key_w = 0;
 	data->key_s = 0;
 	data->key_shift = 1;
+	data->epilepsy = 0;
+	data->e_counter = 0;
 	return (data);
 }

@@ -6,7 +6,7 @@
 #    By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 12:45:03 by dopeyrat          #+#    #+#              #
-#    Updated: 2023/10/02 14:59:09 by dopeyrat         ###   ########.fr        #
+#    Updated: 2023/10/06 13:56:12 by dopeyrat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,9 @@ SRCS	=	main.c \
 			DISPLAY/minimap.c \
 			DISPLAY/raycast.c \
 			DISPLAY/render.c \
+			COLOURS/generate_red.c \
+			COLOURS/generate_green.c \
+			COLOURS/generate_blue.c \
 
 OBJS	=	${SRCS:.c=.o}
 

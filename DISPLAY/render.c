@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:51:32 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/02 14:48:17 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:12:36 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,8 @@ void	render(t_cube *data)
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.window, mini->mlx_img, 0, 0);
 	data->last_frame = get_time();
 	data->mlx.index = 1 - data->mlx.index;
+	if (data->epilepsy)
+		data->e_counter++;
+	if (data->e_counter >= 48)
+		data->e_counter = 0;
 }

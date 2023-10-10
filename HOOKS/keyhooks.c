@@ -6,7 +6,7 @@
 /*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:32:49 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 14:34:01 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:51:26 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	keypress(int keycode, t_cube *data)
 {
 	if (keycode == 53)
 		ft_exit(data, EXIT_SUCCESS);
+	if (keycode == E)
+		data->epilepsy = 1 - data->epilepsy;
 	if (keycode == UP)
 		data->key_w = 1;
 	if (keycode == DOWN)
