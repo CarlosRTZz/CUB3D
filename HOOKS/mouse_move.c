@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_move.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 12:46:24 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/02 13:11:20 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:48:13 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	mouse_move(int x, int y, t_cube *data)
 	(void)y;
 	if (x < (HORIZONTAL / 2))
 	{
-		data->p->a -= PI * ((double)(HORIZONTAL / 2.0) - (double)x) / (((double)HORIZONTAL / 2.0)) / 2;
-
+		data->p->a -= PI * ((double)(HORIZONTAL / 2.0) - (double)x)
+			/ (((double)HORIZONTAL / 2.0)) / 2;
 		if (data->p->a > 2 * PI)
 			data->p->a -= 2 * PI;
 		data->p->x_off = cos(data->p->a);
@@ -26,7 +26,8 @@ int	mouse_move(int x, int y, t_cube *data)
 	}
 	else
 	{
-		data->p->a += PI * (((double)x - ((double)(HORIZONTAL / 2.0))) / (((double)HORIZONTAL / 2.0))) / 2;
+		data->p->a += PI * (((double)x - ((double)(HORIZONTAL / 2.0)))
+				/ (((double)HORIZONTAL / 2.0))) / 2;
 		if (data->p->a < 0)
 			data->p->a += 2 * PI;
 		data->p->x_off = cos(data->p->a);

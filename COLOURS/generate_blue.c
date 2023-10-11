@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   generate_blue.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:49:56 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/06 16:01:11 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:54:44 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Cub3D.h"
 
-unsigned int	generate_brg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low)
+unsigned int	gen_brg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low)
 {
 	unsigned int	mid_step;
 
@@ -33,7 +33,7 @@ unsigned int	generate_brg(t_cube *data, unsigned int high, unsigned int mid, uns
 	return (create_trgb(0, low + ((data->e_counter - 48) * (high - low) / 8), low, high));
 }
 
-unsigned int	generate_bgr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low)
+unsigned int	gen_bgr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low)
 {
 	unsigned int	mid_step;
 

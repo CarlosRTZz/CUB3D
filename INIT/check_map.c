@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:07:15 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/09/29 13:01:39 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/11 14:01:59 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,6 @@ int	all_id_found(t_cube *data)
 		|| data->e_t == 0 || data->f_f == 0 || data->c_f == 0)
 		return (0);
 	return (1);
-}
-
-char	**copy_map(t_cube *data)
-{
-	char	**dst;
-	int		i;
-
-	dst = ft_calloc(data->m_y + 1, sizeof(char *));
-	if (!dst)
-		ft_exit(data, EXIT_MALLOC);
-	i = 0;
-	while (i < data->m_y)
-	{
-		dst[i] = ft_strdup(data->map[i]);
-		if (!dst[i])
-		{
-			free_cube_map(dst);
-			ft_exit(data, EXIT_MALLOC);
-		}
-		i++;
-	}
-	return (dst);
 }
 
 void	recu_check_walls(t_cube *data, char **map, int i, int j)
@@ -135,24 +113,6 @@ void	set_player(t_cube *data)
 			}
 			j++;
 		}
-		i++;
-	}
-}
-
-void	check_map(t_cube *data)
-{
-	if (!all_id_found(data))
-		ft_exit(data, EXIT_MISS_ID);
-	check_walls(data);
-	set_player(data);
-	printf("Player -> x %f, y %f, a %f\n", data->p->x, data->p->y, data->p->a);
-	printf("Texture -> NORTH %s, SOUTH %s, EAST %s, WEST %s\n", data->n_t, data->s_t, data->e_t, data->w_t);
-	printf("Colours -> FLOOR %u, CEILING %u\n", data->f, data->c);
-	int i = 0;
-	printf("MAP -> x %d, y %d\n", data->m_x, data->m_y);
-	while (data->map[i])
-	{
-		printf("%s -> %d\n", data->map[i], (int)ft_strlen(data->map[i]));
 		i++;
 	}
 }

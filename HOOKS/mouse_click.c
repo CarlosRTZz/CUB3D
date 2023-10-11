@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_click.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 12:10:28 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/02 12:24:25 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:47:21 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	mouse_click(int keycode, int x, int y, t_cube *data)
 		p->stepy = 1;
 		p->sidedisty = ((double)p->mapy + 1.0 - data->p->y) * p->deltadisty;
 	}
-	//dA
 	while (p->hit == 0)
 	{
 		if (p->sidedistx < p->sidedisty)

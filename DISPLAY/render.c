@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:51:32 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/06 14:12:36 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:16:28 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ void	render(t_cube *data)
 	}
 	render_minimap(data, mini);
 	cast_rays(data, img, data->p);
-	mlx_put_image_to_window(data->mlx.mlx, data->mlx.window, img->mlx_img, 0, 0);
-	mlx_put_image_to_window(data->mlx.mlx, data->mlx.window, mini->mlx_img, 0, 0);
+	mlx_put_image_to_window(data->mlx.mlx, data->mlx.window,
+		img->mlx_img, 0, 0);
+	mlx_put_image_to_window(data->mlx.mlx, data->mlx.window,
+		mini->mlx_img, 0, 0);
 	data->last_frame = get_time();
 	data->mlx.index = 1 - data->mlx.index;
 	if (data->epilepsy)

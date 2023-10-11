@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:37:03 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/10 12:01:28 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/11 14:03:55 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 //H_FOV = 2 * arctan(tan(V_FOV / 2) * (HORIZONTAL / VERTICAL))
 # define H_FOV 1.59685138
 //1000 microsec / FPS
-# define FRAME_INTERVAL 1000 / 30
+# define FRAME_INTERVAL 1000 / 60
 
 typedef struct s_point
 {
@@ -189,55 +189,60 @@ typedef struct s_cube
 	unsigned int	e_counter;
 }				t_cube;
 
-int			ft_exit(t_cube *data, int status);
-void		init_mlx(t_cube *data);
+int				ft_exit(t_cube *data, int status);
+void			init_mlx(t_cube *data);
 
 /* ---------- FREE ---------- */
 
-t_cube		*free_cub3d(t_cube *data);
-void		free_cube_map(char **map);
+t_cube			*free_cub3d(t_cube *data);
+void			free_cube_map(char **map);
 
 /* ---------- INIT ---------- */
 
-int			check_args(int ac, char **argv);
-t_cube		*init_data(int fd);
-int			is_map_id(char *str);
-int			all_id_found(t_cube *data);
-int			add_map_id(char *str, t_cube *data, int fd, int i);
-int			re_malloc_map(char *str, t_cube *data, int fd);
-void		check_map(t_cube *data);
+void			check_walls(t_cube *data);
+void			set_player(t_cube *data);
+int				check_args(int ac, char **argv);
+t_cube			*init_data(int fd);
+int				is_map_id(char *str);
+int				all_id_found(t_cube *data);
+int				add_map_id(char *str, t_cube *data, int fd, int i);
+int				re_malloc_map(char *str, t_cube *data, int fd);
+void			check_map(t_cube *data);
+char			**copy_map(t_cube *data);
 
 /* ---------- UTILS ---------- */
 
-int			is_empty_str(char *str);
-int			create_trgb(int t, int r, int g, int b);
-void		my_mlx_pixel_put(t_img *img, int x, int y, int colour);
-long long	get_time(void);
-long long	time_diff(long long past, long long pres);
+int				is_empty_str(char *str);
+int				create_trgb(int t, int r, int g, int b);
+void			my_mlx_pixel_put(t_img *img, int x, int y, int colour);
+long long		get_time(void);
+long long		time_diff(long long past, long long pres);
+unsigned int	generate_cf(unsigned int colour, t_cube *data);
+void			put_texture(t_img *img, t_cube *data, int i, int j);
 
 /* ------- MLX  EVENTS ------- */
 
-int			keypress(int keycode, t_cube *data);
-int			keyrelease(int keycode, t_cube *data);
-int			mouse_click(int keycode, int x, int y, t_cube *data);
-int			mouse_move(int x, int y, t_cube *data);
-int			window_closed(t_cube *data);
-int			no_input(t_cube *data);
+int				keypress(int keycode, t_cube *data);
+int				keyrelease(int keycode, t_cube *data);
+int				mouse_click(int keycode, int x, int y, t_cube *data);
+int				mouse_move(int x, int y, t_cube *data);
+int				window_closed(t_cube *data);
+int				no_input(t_cube *data);
 
 /* ---------- RENDER ---------- */
 
-void		render(t_cube *data);
-void		draw_line(t_img *mini, int x1, int y1, int x2, int y2);
-void		cast_rays(t_cube *data, t_img *img, t_player *p);
-void		render_minimap(t_cube *data, t_img *mini);
+void			render(t_cube *data);
+void			draw_line(t_img *mini, int x1, int y1, int x2, int y2);
+void			cast_rays(t_cube *data, t_img *img, t_player *p);
+void			render_minimap(t_cube *data, t_img *mini);
 
 /* ---------- COLOURS ---------- */
 
-unsigned int	generate_rgb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	generate_rbg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	generate_grb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	generate_gbr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	generate_brg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	generate_bgr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	gen_rgb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	gen_rbg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	gen_grb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	gen_gbr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	gen_brg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	gen_bgr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
 
 #endif

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   generate_red.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:38:01 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/06 16:01:03 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:53:26 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Cub3D.h"
 
-unsigned int	generate_rgb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low)
+unsigned int	gen_rgb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low)
 {
 	unsigned int	mid_step;
 
@@ -34,7 +34,7 @@ unsigned int	generate_rgb(t_cube *data, unsigned int high, unsigned int mid, uns
 	return (create_trgb(0, high, low + ((data->e_counter - 48) * (high - low) / 8), low));
 }
 
-unsigned int	generate_rbg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low)
+unsigned int	gen_rbg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low)
 {
 	unsigned int	mid_step;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   no_input.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:35:39 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/02 12:09:27 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:48:48 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	check_hor_col(t_cube *data, double offset)
 	tmp = offset + data->p->x;
 	if ((int)tmp >= data->m_x || (int)tmp < 0)
 		return (0);
-	if (data->map[(int)data->p->y][(int)tmp] == '1' || data->map[(int)data->p->y][(int)tmp] == '2')
+	if (data->map[(int)data->p->y][(int)tmp] == '1' ||
+			data->map[(int)data->p->y][(int)tmp] == '2')
 		return (0);
 	return (1);
 }
@@ -31,14 +32,15 @@ int	check_ver_col(t_cube *data, double offset)
 	tmp = offset + data->p->y;
 	if ((int)tmp >= data->m_y || (int)tmp < 0)
 		return (0);
-	if (data->map[(int)tmp][(int)data->p->x] == '1' || data->map[(int)tmp][(int)data->p->x] == '2')
+	if (data->map[(int)tmp][(int)data->p->x] == '1' ||
+			data->map[(int)tmp][(int)data->p->x] == '2')
 		return (0);
 	return (1);
 }
 
 void	movement_key(t_cube *data)
 {
-	double offset;
+	double	offset;
 
 	if (data->key_w)
 	{

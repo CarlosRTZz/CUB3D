@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:47:12 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/02 12:08:31 by dopeyrat         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:45:16 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Cub3D.h"
 
-int		get_minimap_colour(t_cube *data, double a, double b)
+int	get_minimap_colour(t_cube *data, double a, double b)
 {
 	int		a_a;
 	int		a_b;
@@ -25,7 +25,8 @@ int		get_minimap_colour(t_cube *data, double a, double b)
 		return (0xFF000000);
 	f_a = fmod(a, 1);
 	f_b = fmod(b, 1);
-	if (data->map[a_b][a_a] == '1' || data->map[a_b][a_a] == '0' || data->map[a_b][a_a] == '2' || data->map[a_b][a_a] == '3')
+	if (data->map[a_b][a_a] == '1' || data->map[a_b][a_a] == '0' ||
+			data->map[a_b][a_a] == '2' || data->map[a_b][a_a] == '3')
 	{
 		if ((f_a < 0.0125 || f_a > 0.9875) || (f_b < 0.0125 || f_b > 0.9875))
 			return (0x0);
@@ -35,7 +36,7 @@ int		get_minimap_colour(t_cube *data, double a, double b)
 			return (0x7F3F3F);
 		return (0xFF);
 	}
-		return (0xFF000000);
+	return (0xFF000000);
 }
 
 void	render_minimap(t_cube *data, t_img *mini)

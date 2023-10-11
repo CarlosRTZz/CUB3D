@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+         #
+#    By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 12:45:03 by dopeyrat          #+#    #+#              #
-#    Updated: 2023/10/06 13:56:12 by dopeyrat         ###   ########.fr        #
+#    Updated: 2023/10/11 14:00:34 by cortiz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS	=	main.c \
 			INIT/init.c \
 			INIT/map_id.c \
 			INIT/remalloc.c \
+			INIT/init_utils.c \
 			HOOKS/keyhooks.c \
 			HOOKS/no_input.c \
 			HOOKS/mouse_click.c \
