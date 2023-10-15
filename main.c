@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cortiz <cortiz@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:36:04 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/11 13:22:04 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/10/15 14:11:24 by cortiz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cub3D.h"
+
+void	ft_exit_2(int status)
+{
+	if (status == EXIT_DUP_ID)
+		ft_putstr_fd("An ID is duplicated in the map file\n", 2);
+	else if (status == EXIT_WALL_ERROR)
+		ft_putstr_fd("The map's walls are open near the player.\n", 2);
+	else if (status == EXIT_MISS_PLAYER)
+		ft_putstr_fd("Player character missing from map file\n", 2);
+	else if (status == EXIT_DUP_PLAYER)
+		ft_putstr_fd("Two or more player characters found in map\n", 2);
+	else if (status == EXIT_MLX_ERR)
+		ft_putstr_fd("MLX initialisation failed\n", 2);
+	else if (status == EXIT_TEXTURE_ERR)
+		ft_putstr_fd("A texture provided is corrupted\n", 2);
+}
 
 int	ft_exit(t_cube *data, int status)
 {
@@ -31,18 +47,7 @@ int	ft_exit(t_cube *data, int status)
 		ft_putstr_fd("Map file is corrupted\n", 2);
 	else if (status == EXIT_MISS_ID)
 		ft_putstr_fd("An ID is missing from the map file\n", 2);
-	else if (status == EXIT_DUP_ID)
-		ft_putstr_fd("An ID is duplicated in the map file\n", 2);
-	else if (status == EXIT_WALL_ERROR)
-		ft_putstr_fd("The walls in the map file are not closed on the player\n", 2);
-	else if (status == EXIT_MISS_PLAYER)
-		ft_putstr_fd("Player character missing from map file\n", 2);
-	else if (status == EXIT_DUP_PLAYER)
-		ft_putstr_fd("Two or more player characters found in map\n", 2);
-	else if (status == EXIT_MLX_ERR)
-		ft_putstr_fd("MLX initialisation failed\n", 2);
-	else if (status == EXIT_TEXTURE_ERR)
-		ft_putstr_fd("A texture provided is corrupted\n", 2);
+	ft_exit_2(status);
 	exit(status);
 }
 
