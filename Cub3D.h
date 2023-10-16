@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:37:03 by dopeyrat          #+#    #+#             */
-/*   Updated: 2023/10/11 14:03:55 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/10/16 12:56:53 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 //H_FOV = 2 * arctan(tan(V_FOV / 2) * (HORIZONTAL / VERTICAL))
 # define H_FOV 1.59685138
 //1000 microsec / FPS
-# define FRAME_INTERVAL 1000 / 60
+# define FRAME_INTERVAL 8.33333333
 
 typedef struct s_point
 {
@@ -64,7 +64,7 @@ typedef struct s_point
 	double	y;
 }				t_point;
 
-typedef	struct	s_texture
+typedef struct s_texture
 {
 	void	*mlx_img;
 	int		width;
@@ -101,7 +101,7 @@ typedef struct s_player
 	double		deltadistx;
 	double		deltadisty;
 	double		perpwalldist;
-	
+
 	int			stepx;
 	int			stepy;
 
@@ -139,18 +139,18 @@ typedef struct s_ray
 	double	wall_h;
 }				t_ray;
 
-typedef	struct s_mlx
+typedef struct s_mlx
 {
-	void	*mlx;
-	void	*window;
+	void		*mlx;
+	void		*window;
 
-	t_img	mini1;
-	t_img	mini2;
+	t_img		mini1;
+	t_img		mini2;
 
-	t_img	img1;
-	t_img	img2;
+	t_img		img1;
+	t_img		img2;
 
-	int		index;
+	int			index;
 
 	t_texture	no;
 	t_texture	so;
@@ -232,17 +232,23 @@ int				no_input(t_cube *data);
 /* ---------- RENDER ---------- */
 
 void			render(t_cube *data);
-void			draw_line(t_img *mini, int x1, int y1, int x2, int y2);
+//void			draw_line(t_img *mini, int x1, int y1, int x2, int y2);
 void			cast_rays(t_cube *data, t_img *img, t_player *p);
 void			render_minimap(t_cube *data, t_img *mini);
 
 /* ---------- COLOURS ---------- */
 
-unsigned int	gen_rgb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	gen_rbg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	gen_grb(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	gen_gbr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	gen_brg(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
-unsigned int	gen_bgr(t_cube *data, unsigned int high, unsigned int mid, unsigned int low);
+unsigned int	gen_rgb(t_cube *data, unsigned int high,
+					unsigned int mid, unsigned int low);
+unsigned int	gen_rbg(t_cube *data, unsigned int high,
+					unsigned int mid, unsigned int low);
+unsigned int	gen_grb(t_cube *data, unsigned int high,
+					unsigned int mid, unsigned int low);
+unsigned int	gen_gbr(t_cube *data, unsigned int high,
+					unsigned int mid, unsigned int low);
+unsigned int	gen_brg(t_cube *data, unsigned int high,
+					unsigned int mid, unsigned int low);
+unsigned int	gen_bgr(t_cube *data, unsigned int high,
+					unsigned int mid, unsigned int low);
 
 #endif
