@@ -3,24 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   init_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cortiz <cortiz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dopeyrat <dopeyrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:58:19 by cortiz            #+#    #+#             */
-/*   Updated: 2023/10/11 14:09:12 by cortiz           ###   ########.fr       */
+/*   Updated: 2023/10/16 13:14:47 by dopeyrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Cub3D.h"
 
-void	check_map(t_cube *data)
+/*void	print_map(t_cube *data)
 {
-	int	i;
-	// FONCTION A SUPPRIMER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	i = 0;
-	if (!all_id_found(data))
-		ft_exit(data, EXIT_MISS_ID);
-	check_walls(data);
-	set_player(data);
 	printf("Player -> x %f, y %f, a %f\n", data->p->x, data->p->y, data->p->a);
 	printf("Texture -> NORTH %s, SOUTH %s", data->n_t, data->s_t);
 	printf("EAST %s, WEST %s\n", data->e_t, data->w_t);
@@ -31,6 +24,17 @@ void	check_map(t_cube *data)
 		printf("%s -> %d\n", data->map[i], (int)ft_strlen(data->map[i]));
 		i++;
 	}
+}*/
+
+void	check_map(t_cube *data)
+{
+	int	i;
+
+	i = 0;
+	if (!all_id_found(data))
+		ft_exit(data, EXIT_MISS_ID);
+	check_walls(data);
+	set_player(data);
 }
 
 char	**copy_map(t_cube *data)
